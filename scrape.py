@@ -1,7 +1,7 @@
 from urllib.request import urlopen
 import re
 
-url = "http://www.webmfiles.org/demo-files/"
+url = "https://www.boards.4chan.org/gif/"
 
 page = urlopen(url)
 html_bytes = page.read()
@@ -28,9 +28,19 @@ def printbody():
 	print(body)
 
 def findwebm():
-	body = getBody()
-	webms  = re.findall(".webm",body)
-	print(webms)
+    body = getBody()
+    webms  = re.findall(".*.webm",body)
+    for i in range(len(webms)):
+        print(webms[i])
+        print("\n")
+
+
+
+def main():
+    findwebm()
+
+main()
+
 
 #print(html)
 
